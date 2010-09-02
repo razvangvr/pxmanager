@@ -1,11 +1,11 @@
 #summary Introductory page of the Project.
 
-= Introduction =
+= Personal expense manager =
 
-Add your content here.
+==What is this project?==
+  * this is a learning application, it is meant to be simple and easy to understand
+  The business problem that this application models and solves is straightforward and simple
 
-
-= Details =
 
 Add your content here.  Format your content with:
   * Text in *bold* or _italic_
