@@ -19,8 +19,10 @@ import java.sql.ResultSet;
 public class UserDAOImpl implements UserDAO {
 
     public static final int SQL_ERR = -1;
-    private static final String INSERT_USER = "INSERT INTO users (IdUser,name,password) VALUES (NULL,?,?)";
-    private static final String FIND_USER_BY_ID = "SELECT * FROM users WHERE users.IdUser = ?";
+    private static final String INSERT_USER = "INSERT INTO users (IdUser,name,password) VALUES (NULL,?,?);";
+    private static final String FIND_USER_BY_ID = "SELECT * FROM users WHERE users.IdUser = ?;";
+    private static final String UPDATE_USER = "UPDATE users SET name = ?, password = ? WHERE IdUser = ?;";
+    private static final String DELETE_USER = "DELETE FROM users WHERE userId=?;";
 
     /**
      * Inserts an user into DB
@@ -28,6 +30,9 @@ public class UserDAOImpl implements UserDAO {
      * -1 on error
      */
     public int insertUser(UserBean user) {
+        if (user == null) {
+            throw new IllegalArgumentException("user can not be null");
+        }
         int result = SQL_ERR;
         Connection conn = null;
         PreparedStatement pstat = null;
@@ -40,9 +45,7 @@ public class UserDAOImpl implements UserDAO {
         } catch (SQLException ex) {
             ex.printStackTrace();
         } finally {
-            if (null != conn) {
-                DAOFactoryMySQL.closeConnection(conn);
-            }
+            DAOFactoryMySQL.closeConnection(conn);
         }
         return result;
 
@@ -72,18 +75,72 @@ public class UserDAOImpl implements UserDAO {
         } catch (SQLException ex) {
             ex.printStackTrace();
         } finally {
-            if (null != conn) {
-                DAOFactoryMySQL.closeConnection(conn);
-            }
+            DAOFactoryMySQL.closeConnection(conn);
         }
         return result;
     }
 
+    /**
+     * updates this user
+     * @return true on success. false on error or failure
+     * @return nr de randuri afectate: > 0 (1) - daca schimbarea s-a facut cu succes;
+     * 0 - in cazul in care nici un rand nu a fost afectat;
+     * -1 - in cazul unei erori.
+     */
     public boolean updateUser(UserBean user) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if (user == null) {
+            throw new IllegalArgumentException("user can not be null");
+        }
+        int queryResult = SQL_ERR;
+        boolean result = false;
+        Long id = user.getIdUser();
+        Connection conn = null;
+        PreparedStatement pstat = null;
+        try {
+            conn = DAOFactoryMySQL.getConnection();
+            pstat = conn.prepareStatement(UPDATE_USER);
+            pstat.setString(1, user.getName());
+            pstat.setString(2, user.getPassword());
+            pstat.setLong(3, id);
+            queryResult = pstat.executeUpdate();
+            if(queryResult>0){
+                result = true;
+            }
+        } catch (SQLException sqlEx) {
+            sqlEx.printStackTrace();
+        } finally {
+            DAOFactoryMySQL.closeConnection(conn);
+        }
+        return result;
     }
 
+    /**
+     * Deletes the user with the giver IdUser
+     * TODO - if I delete a user then I can create an inconsitency in the DB
+     * what happens with the accounts and expenses of an user when you delete it?
+     * before you can delete an user you should check that is has no accounts/expenses
+     * @return true on success. false on error or failure
+     */
     public boolean deleteUser(long idUser) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        boolean result = false;
+        int queryResult = SQL_ERR;
+        Connection conn = null;
+        PreparedStatement pstat = null;
+        try {
+            conn = DAOFactoryMySQL.getConnection();
+            pstat = conn.prepareStatement(DELETE_USER);
+            pstat.setLong(1, idUser);
+            queryResult = pstat.executeUpdate();
+            if(queryResult>0){
+                result = true;
+            }
+        } catch (SQLException sqlEx) {
+            sqlEx.printStackTrace();
+        } finally {
+            DAOFactoryMySQL.closeConnection(conn);
+        }
+
+        return result;
+        
     }
 }
