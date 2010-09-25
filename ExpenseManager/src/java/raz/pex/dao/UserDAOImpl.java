@@ -17,8 +17,7 @@ import java.sql.ResultSet;
  * @author razvan
  */
 public class UserDAOImpl implements UserDAO {
-
-    public static final int SQL_ERR = -1;
+ 
     private static final String INSERT_USER = "INSERT INTO users (IdUser,name,password) VALUES (NULL,?,?);";
     private static final String FIND_USER_BY_ID = "SELECT * FROM users WHERE users.IdUser = ?;";
     private static final String UPDATE_USER = "UPDATE users SET name = ?, password = ? WHERE IdUser = ?;";
@@ -26,14 +25,14 @@ public class UserDAOImpl implements UserDAO {
 
     /**
      * Inserts an user into DB
-     * @return the ID of newly created customer
+     * @return the ID of newly created user
      * -1 on error
      */
     public int insertUser(UserBean user) {
         if (user == null) {
             throw new IllegalArgumentException("user can not be null");
         }
-        int result = SQL_ERR;
+        int result = Constants.SQL_ERR;
         Connection conn = null;
         PreparedStatement pstat = null;
         try {
@@ -91,7 +90,7 @@ public class UserDAOImpl implements UserDAO {
         if (user == null) {
             throw new IllegalArgumentException("user can not be null");
         }
-        int queryResult = SQL_ERR;
+        int queryResult = Constants.SQL_ERR;
         boolean result = false;
         Long id = user.getIdUser();
         Connection conn = null;
@@ -123,7 +122,7 @@ public class UserDAOImpl implements UserDAO {
      */
     public boolean deleteUser(long idUser) {
         boolean result = false;
-        int queryResult = SQL_ERR;
+        int queryResult = Constants.SQL_ERR;
         Connection conn = null;
         PreparedStatement pstat = null;
         try {
