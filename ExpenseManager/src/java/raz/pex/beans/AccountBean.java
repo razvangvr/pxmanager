@@ -10,12 +10,15 @@ package raz.pex.beans;
  *
  * is it just a Transfer Object ?
  */
-public class AccountBean implements java.io.Serializable{
+public class AccountBean implements java.io.Serializable {
 
     private long idAccount;
     private long idUser;
     private float debit;
     private float credit;
+
+    public AccountBean() {
+    }
 
     public AccountBean(long idAccount, long idUser, float debit, float credit) {
         this.idAccount = idAccount;

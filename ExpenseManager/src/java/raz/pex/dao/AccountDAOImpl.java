@@ -17,6 +17,7 @@ import java.sql.SQLException;
 public class AccountDAOImpl implements AccountDAO {
 
     private static final String INSER_ACCOUNT = "INSERT INTO account (IdAccount,IdUser,debit,credit) VALUES (NULL,?,?,?)";
+    private static final String FIND_ACCOUNT_BY_ID = "SELECT * FROM account WHERE account.IdAccount = ?";
 
     /**
      * Inserts an account into DB
@@ -43,8 +44,34 @@ public class AccountDAOImpl implements AccountDAO {
 
     }
 
+    /**
+     * Find a Account by IdAccount
+     * @param IdAccount
+     * @return AccountBean, or returns null is no user has been ferched by specified Id
+     */
     public AccountBean findAccountById(long idAccount) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        AccountBean result = null;
+        Connection conn = null;
+        PreparedStatement pstat = null;
+        ResultSet rs = null;
+        try {
+            conn = DAOFactoryMySQL.getConnection();
+            pstat = conn.prepareStatement(FIND_ACCOUNT_BY_ID);
+            pstat.setLong(1, idAccount);
+            rs = pstat.executeQuery();
+            if (rs.next()) {
+                result = new AccountBean();
+                result.setIdAccount(rs.getLong("IdAccount"));
+                result.setIdUser(rs.getLong("IdUser"));
+                result.setDebit(rs.getFloat("debit"));
+                result.setCredit(rs.getFloat("credit"));
+            }
+        } catch (SQLException sqlEx) {
+            sqlEx.printStackTrace();
+        } finally {
+            DAOFactoryMySQL.closeConnection(conn);
+        }
+        return result;
     }
 
     public boolean updateAccount(AccountBean account) {
