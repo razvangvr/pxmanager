@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import static raz.pex.dao.Constants.*;
 
 /**
  *
@@ -18,6 +19,7 @@ public class AccountDAOImpl implements AccountDAO {
 
     private static final String INSER_ACCOUNT = "INSERT INTO account (IdAccount,IdUser,debit,credit) VALUES (NULL,?,?,?)";
     private static final String FIND_ACCOUNT_BY_ID = "SELECT * FROM account WHERE account.IdAccount = ?";
+    private static final String UPDATE_ACCOUNT = "UPDATE account SET IdUser = ?, debit = ?, credit = ? WHERE IdAccount = ?";
 
     /**
      * Inserts an account into DB
@@ -25,7 +27,7 @@ public class AccountDAOImpl implements AccountDAO {
      * -1 on error
      */
     public int insertAccount(AccountBean account) {
-        int result = Constants.SQL_ERR;
+        int result = SQL_ERR;
         Connection conn = null;
         PreparedStatement pstat = null;
         try {
@@ -74,8 +76,38 @@ public class AccountDAOImpl implements AccountDAO {
         return result;
     }
 
+    /**
+     * Updates an Account
+     * number of affected rows: > 0 (1) - if update was successful;
+     * @return true if success, false on error
+     */
     public boolean updateAccount(AccountBean account) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if (account == null) {
+            throw new IllegalArgumentException("account can not be null");
+        }
+        int queryResult = SQL_ERR;
+        boolean result = false;
+        Long id = account.getIdAccount();
+        Connection conn = null;
+        PreparedStatement pstat = null;
+        try {
+            conn = DAOFactoryMySQL.getConnection();
+            pstat = conn.prepareStatement(UPDATE_ACCOUNT);
+            pstat.setLong(1, account.getIdUser());
+            pstat.setFloat(2, account.getDebit());
+            pstat.setFloat(3, account.getCredit());
+            pstat.setLong(4, id);
+            queryResult = pstat.executeUpdate();
+            if (queryResult > 0) {
+                result = true;
+            }
+        } catch (SQLException sqlEx) {
+            sqlEx.printStackTrace();
+        } finally {
+            DAOFactoryMySQL.closeConnection(conn);
+        }
+        return result;
+
     }
 
     public boolean deleteAccount(long idAccount) {
