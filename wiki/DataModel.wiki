@@ -2,7 +2,8 @@
 
 = PXManager Data Model  =
 
-http://code.google.com/p/pxmanager/source/browse/trunk/ExpenseManager/nbproject/PexManagerDataModel.png
+
+http://pxmanager.googlecode.com/svn/wiki/PexManagerDataModel.png
 
 Add your content here.
 
