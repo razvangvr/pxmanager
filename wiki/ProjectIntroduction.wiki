@@ -3,8 +3,12 @@
 = Personal expense manager =
 
 ==What is this project?==
-  * this is a learning application, it is meant to be simple and easy to understand
-  The business problem that this application models and solves is straightforward and simple
+  # This is a learning application, it is meant to be simple and easy to understand.The business problem that this application models and solves is straightforward and simple.
+  # Personal eXpense Manager is a Web Application that is used to manage personal expenses in a simple, straightforward way.
+
+==Business Model==
+  # The User of the application has an account. The Account has Debit( money going out) Credit( money coming in). Every account belongs to one user!
+  # A user can submit an expense. An expense belongs to an user. I has an ammount of money spent on that expense, ammount that will be debited to one account.
 
 
 Add your content here.  Format your content with:
