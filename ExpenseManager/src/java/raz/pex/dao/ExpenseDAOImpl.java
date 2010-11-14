@@ -25,6 +25,7 @@ public class ExpenseDAOImpl implements ExpenseDAO {
     private static final String INSERT_EXPENSE = "INSERT INTO expenses (IdExpense, IdUser, IdAccount, IdCategory, date, description, amount) " +
             "VALUES (NULL,?,?,?,NOW(),?,?);";
     private static final String FIND_EXPENSE_BY_ID = "SELECT * FROM expenses WHERE IdExpense = ?; ";
+    private static final String UPDATE_EXPENSE = "";
 
     /**
      * Inserts an Expense into DB
@@ -73,10 +74,14 @@ public class ExpenseDAOImpl implements ExpenseDAO {
             pstat.setLong(1, idExpense);
             rs = pstat.executeQuery();
             if (rs.next()) {
-                //result = new ExpenseBean(idExpense, idExpense, idExpense, idExpense, null, INSERT_EXPENSE, SQL_ERR);
-//                result.setIdUser(rs.getLong("IdUser"));
-//                result.setName(rs.getString("name"));
-//                result.setPassword(rs.getString("password"));
+                result = new ExpenseBean();
+                result.setIdExpense(rs.getLong("IdUser"));
+                result.setIdUser(rs.getLong("IdUser"));
+                result.setIdAccount(rs.getLong("IdAccount"));
+                result.setIdCategory(rs.getLong("IdCategory"));
+                result.setDate(rs.getDate("date"));
+                result.setDescription(rs.getString("description"));
+                result.setAmount(rs.getFloat("amount"));
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -87,8 +92,38 @@ public class ExpenseDAOImpl implements ExpenseDAO {
         return result;
     }
 
+    /**
+     * updates this expense
+     * @return true on success. false on error or failure
+     * @return nr de randuri afectate: > 0 (1) - daca schimbarea s-a facut cu succes;
+     * 0 - in cazul in care nici un rand nu a fost afectat;
+     * -1 - in cazul unei erori.
+     * TODO: it may happen that the update will affect no rows, that is the update has no new data,
+     * why return false?
+     */
     public boolean updateExpense(ExpenseBean expense) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        assertNotNull(expense, "Expense can not be null");
+        int queryResult = SQL_ERR;
+        boolean result = false;
+        Long id = expense.getIdExpense();
+        Connection conn = null;
+        PreparedStatement pstat = null;
+        try {
+            conn = DAOFactoryMySQL.getConnection();
+//            pstat = conn.prepareStatement(UPDATE_USER);
+//            pstat.setString(1, user.getName());
+//            pstat.setString(2, user.getPassword());
+//            pstat.setLong(3, id);
+//            queryResult = pstat.executeUpdate();
+//            if(queryResult>0){
+//                result = true;
+//            }
+        } catch (SQLException sqlEx) {
+            sqlEx.printStackTrace();
+        } finally {
+            DAOFactoryMySQL.closeConnection(conn);
+        }
+        return result;
     }
 
     public boolean deleteExpense(long idExpense) {
