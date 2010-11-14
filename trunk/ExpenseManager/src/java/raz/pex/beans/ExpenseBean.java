@@ -2,7 +2,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package raz.pex.beans;
 
 import java.util.Date;
@@ -11,7 +10,7 @@ import java.util.Date;
  *
  * @author razvan
  */
-public class ExpenseBean implements java.io.Serializable{
+public class ExpenseBean implements java.io.Serializable {
 
     private long idExpense;
     private long idUser;
@@ -20,6 +19,9 @@ public class ExpenseBean implements java.io.Serializable{
     private Date date;
     private String description;
     private float amount;
+
+    public ExpenseBean() {
+    }
 
     public ExpenseBean(long idExpense, long idUser, long idAccount, long idCategory, Date date, String description, float amount) {
         this.idExpense = idExpense;
@@ -30,8 +32,6 @@ public class ExpenseBean implements java.io.Serializable{
         this.description = description;
         this.amount = amount;
     }
-
-    
 
     /**
      * @return the idExpense
@@ -130,5 +130,4 @@ public class ExpenseBean implements java.io.Serializable{
     public void setAmount(float amount) {
         this.amount = amount;
     }
-
 }
