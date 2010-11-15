@@ -1,0 +1,9 @@
+#summary Project Status
+
+= The Status of the project at certain steps/dates =
+
+== 15.Nov.2010 ==
+I have finished implementing DAO logic that contains CRUD methods.
+
+What to do next? - I need an interface to access the DAO.
+If I write some JSPs can I call DAO straight from JSPs?
