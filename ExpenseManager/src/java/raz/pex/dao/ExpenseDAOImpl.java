@@ -23,9 +23,10 @@ import raz.pex.dao.DAOFactoryMySQL;
 public class ExpenseDAOImpl implements ExpenseDAO {
 
     private static final String INSERT_EXPENSE = "INSERT INTO expenses (IdExpense, IdUser, IdAccount, IdCategory, date, description, amount) " +
-            "VALUES (NULL,?,?,?,NOW(),?,?);";
+            "VALUES (NULL,?,?,?,?,?,?);";
     private static final String FIND_EXPENSE_BY_ID = "SELECT * FROM expenses WHERE IdExpense = ?; ";
-    private static final String UPDATE_EXPENSE = "";
+    private static final String UPDATE_EXPENSE = "UPDATE expenses SET IdUser = ?, IdAccount = ?, IdCategory = ?, date = ?, description = ?, ammount = ? WHERE IdExpense = ?;";
+    private static final String DELETE_EXPENSE = "DELETE FROM expenses WHERE IdExpense = ?;";
 
     /**
      * Inserts an Expense into DB
@@ -44,8 +45,7 @@ public class ExpenseDAOImpl implements ExpenseDAO {
             pstat.setLong(count++, expense.getIdUser());
             pstat.setLong(count++, expense.getIdAccount());
             pstat.setLong(count++, expense.getIdCategory());
-            //pstat.setDate(count++,(Date) expense.getDate());
-            //TODO: How to convert from java Date to SQL Date?
+            pstat.setDate(count++, new java.sql.Date(expense.getDate().getTime()));
             pstat.setString(count++, expense.getDescription());
             pstat.setFloat(count++, expense.getAmount());
             result = pstat.executeUpdate();
@@ -108,16 +108,21 @@ public class ExpenseDAOImpl implements ExpenseDAO {
         Long id = expense.getIdExpense();
         Connection conn = null;
         PreparedStatement pstat = null;
+        int counter = 1;
         try {
             conn = DAOFactoryMySQL.getConnection();
-//            pstat = conn.prepareStatement(UPDATE_USER);
-//            pstat.setString(1, user.getName());
-//            pstat.setString(2, user.getPassword());
-//            pstat.setLong(3, id);
-//            queryResult = pstat.executeUpdate();
-//            if(queryResult>0){
-//                result = true;
-//            }
+            pstat = conn.prepareStatement(UPDATE_EXPENSE);
+            pstat.setLong(counter++, expense.getIdUser());
+            pstat.setLong(counter++, expense.getIdAccount());
+            pstat.setLong(counter++, expense.getIdCategory());
+            pstat.setDate(counter++, new java.sql.Date(expense.getDate().getTime()));
+            pstat.setString(counter++, expense.getDescription());
+            pstat.setFloat(counter++, expense.getAmount());
+            pstat.setLong(counter++, id);
+            queryResult = pstat.executeUpdate();
+            if (queryResult >= 0) {
+                result = true;
+            }
         } catch (SQLException sqlEx) {
             sqlEx.printStackTrace();
         } finally {
@@ -126,7 +131,28 @@ public class ExpenseDAOImpl implements ExpenseDAO {
         return result;
     }
 
+    /**
+     * Deletes the Expense with the given Id
+     *
+     */
     public boolean deleteExpense(long idExpense) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        boolean result = false;
+        int queryResult = Constants.SQL_ERR;
+        Connection conn = null;
+        PreparedStatement pstat = null;
+         try {
+            conn = DAOFactoryMySQL.getConnection();
+            pstat = conn.prepareStatement(DELETE_EXPENSE);
+            pstat.setLong(1, idExpense);
+            queryResult = pstat.executeUpdate();
+            if(queryResult>0){
+                result = true;
+            }
+        } catch (SQLException sqlEx) {
+            sqlEx.printStackTrace();
+        } finally {
+            DAOFactoryMySQL.closeConnection(conn);
+        }
+        return result;
     }
 }
