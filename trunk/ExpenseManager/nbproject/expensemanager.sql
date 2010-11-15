@@ -13,6 +13,9 @@ File Encoding         : 65001
 Date: 2010-09-03 00:23:05
 */
 
+CREATE SCHEMA IF NOT EXISTS `expensemanager` DEFAULT CHARACTER SET utf8 ;
+USE `expensemanager` ;
+
 SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 -- Table structure for `account`
