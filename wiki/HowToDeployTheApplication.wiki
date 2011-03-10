@@ -1,0 +1,8 @@
+#summary This page specifies how to install the Application.
+
+= How to deploy the application =
+The application runs in *Glasfish Application Server* v2.1.1
+
+= Glassfish Resorces =
+ #1 JDBC Resorce: jdbc/expensemanager  
+ #2 JDBC Resorce is based on a connection pool.
