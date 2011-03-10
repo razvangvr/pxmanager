@@ -1,4 +1,4 @@
-#summary One-This page specifies how to install the Application.
+#summary This page specifies how to install the Application.
 
 = Introduction =
 
