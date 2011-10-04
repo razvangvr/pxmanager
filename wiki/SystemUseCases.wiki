@@ -12,13 +12,11 @@ This interaction is a single unit of meaningful work, such as Create Acount or V
 
 ==== User Login ====
 || *User* || *System* ||
-||Enters userName/Password||Looks up in the DB a userName ||
+||Enters userName/Password|| ||
+|| ||Looks up in the DB a userName ||
 || ||If userName Exists in DB it will match the entered password's hash with the hash that we have in DB for that userName||
 || || If Credentials are OK ||
-|| User enters the system || ||
-|| || User Welcome screen is displayed ||
+|| ||User is welcomed into the System. User Welcome screen is displayed ||
 || || If user does not exist, or password does not match it will say "Incorrect UserName or password"||
-||User Exists the system||||
-
 
 
