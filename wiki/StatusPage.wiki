@@ -5,5 +5,5 @@
 == 15.Nov.2010 ==
 I have finished implementing DAO logic that contains CRUD methods.
 
-What to do next? - I need an UserInterface to access the DAO.
+What to do next? - I need an User Interface to access the DAO.
 If I write some JSPs can I call DAO straight from JSPs?
