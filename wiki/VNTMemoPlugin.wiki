@@ -14,3 +14,11 @@ The Line Brakes in the note are preserved.
 Since I haven't found any application that parses a .vnt note, I created this basic eclipse plugin to convert my .vnt memo files into text(.txt) files.
 
 ==Download the plug-in==
+
+==Install the plugin==
+
+#1 Shut down eclipse
+#2 Copy the .jar into `eclipse\dropins\` folder
+#3 Start eclipse
+
+http://help.eclipse.org/juno/index.jsp?topic=%2Forg.eclipse.platform.doc.isv%2Freference%2Fmisc%2Fp2_dropins_format.html
