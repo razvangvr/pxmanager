@@ -3,4 +3,14 @@
 
 =VNT Memo plugin=
 
-I created this basic eclipse plugin to convert my .vnt memo files into .txt.
+Conver VNT memos into text files.
+
+==Description==
+On my Samsung Galaxy S, the Android application *Memo* saves the notes as _.vnt_ files.
+
+Once you download them on your computer, you want to view them just as it would show on your phone. 
+The Line Brakes in the note are preserved.
+
+Since I haven't found any application that parses a .vnt note, I created this basic eclipse plugin to convert my .vnt memo files into text(.txt) files.
+
+==Download the plug-in==
