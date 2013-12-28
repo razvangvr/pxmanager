@@ -1,7 +1,6 @@
+#summary Eclipse Plugin to Convert VNT memo files into txt
 #labels plug-in,eclipse,vnt,memo,reader
-#Eclipse Plugin to Convert VNT memo files into txt
 
 =VNT Memo plugin=
 
 I created this basic eclipse plugin to convert my .vnt memo files into .txt.
-
