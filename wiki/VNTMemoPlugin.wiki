@@ -1,5 +1,5 @@
 #summary Eclipse Plugin to Convert VNT memo files into txt
-#labels plug-in,eclipse,vnt,memo,reader
+#labels plug-in,eclipse,vnt,memo,reader,java
 
 =VNT Memo plugin=
 
@@ -16,9 +16,15 @@ Since I haven't found any application that parses a .vnt note, I created this ba
 ==Download the plug-in==
 
 Go to [https://code.google.com/p/pxmanager/source/browse/#svn%2Fbranches%2FeclipseProjects%2Fraz.memo.reader%2Fexported source-> ... raz.memo.reader/exported] and right click on the .jar file, then `save link as/save target as` to save the .jar locally
+
 ==Install the plugin==
  # Shut down eclipse
  # Copy the .jar into `eclipse\dropins\` folder
  # Start eclipse, the plugin should be installed.
 
 [http://help.eclipse.org/juno/index.jsp?topic=%2Forg.eclipse.platform.doc.isv%2Freference%2Fmisc%2Fp2_dropins_format.html see eclipse dropins folder references]
+
+==How to use the VNT Memo plugin==
+ # Just create an eclipse project
+ # Create a folder and copy your `.vnt` files into that folder
+ # Select one or more vnt files, right click, `MemoSubmenu->Memo Action`
