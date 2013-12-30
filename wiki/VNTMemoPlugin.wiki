@@ -25,7 +25,7 @@ Go to [https://code.google.com/p/pxmanager/source/browse/#svn%2Fbranches%2Feclip
 [http://help.eclipse.org/juno/index.jsp?topic=%2Forg.eclipse.platform.doc.isv%2Freference%2Fmisc%2Fp2_dropins_format.html see eclipse dropins folder references]
 
 ==How to use the VNT Memo plugin==
- # Just create an eclipse project
+ # Just create (or use an existing) an eclipse project
  # Create a folder and copy your `.vnt` files into that folder
  # Select one or more vnt files, right click, `MemoSubmenu->Memo Action`
 
