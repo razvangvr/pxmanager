@@ -28,3 +28,6 @@ Go to [https://code.google.com/p/pxmanager/source/browse/#svn%2Fbranches%2Feclip
  # Just create an eclipse project
  # Create a folder and copy your `.vnt` files into that folder
  # Select one or more vnt files, right click, `MemoSubmenu->Memo Action`
+
+==Thank you==
+If you download and use this just give me an email to encourage me.
