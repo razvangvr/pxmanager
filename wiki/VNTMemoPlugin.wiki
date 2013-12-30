@@ -30,4 +30,4 @@ Go to [https://code.google.com/p/pxmanager/source/browse/#svn%2Fbranches%2Feclip
  # Select one or more vnt files, right click, `MemoSubmenu->Memo Action`
 
 ==Thank you==
-If you download and use this just give me an email to encourage me.
+If you download and use this just give me an email or leave me a comment, to encourage me. It would mean a lot to me to see that a person actually uses this, as it is my first endeavor of this kind.
