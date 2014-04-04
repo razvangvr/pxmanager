@@ -3,7 +3,7 @@
 = Personal expense manager =
 
 ==What is this project?==
-  # This is a learning application, it is meant to be simple and easy to understand.The business problem that this application models and solves is straightforward and simple.
+  # This is a learning application, it is meant to be simple and easy to understand. The purpose of this project is to understand and exercise technical java techniques. The business problem that this application models and solves is straightforward and simple.
   # Personal eXpense Manager is a Web Application that is used to manage personal expenses in a simple, straightforward way.
 
 ==Business Model==
