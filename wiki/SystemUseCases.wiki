@@ -16,7 +16,5 @@ This interaction is a single unit of meaningful work, such as Create Acount or V
 || ||Looks up in the DB a userName ||
 || ||If userName Exists in DB it will match the entered password's hash with the hash that we have in DB for that userName||
 || || If Credentials are OK ||
-|| ||User is welcomed into the System. User Welcome screen is displayed ||
-|| || If user does not exist, or password does not match it will say "Incorrect UserName or password"||
-
-
+|| ||User is welcomed into the System. User Welcome screen is displayed. Once the user logs in, the system must keep track of it's active session ||
+|| || If user does not exist, or password does not match it will say "Incorrect UserName or password", "sign-up for an account", "forgot my password"||
