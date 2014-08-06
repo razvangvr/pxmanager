@@ -5,10 +5,10 @@
                  ro.dirigentie.dao.AnscolarDAO"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
-<BODY BACKGROUND="../img/background.jpg">
+<BODY >
 <table class="titlu">
     <tr><td valign=top>
-        <jsp:include page="../menu.jsp" flush="true"/>
+        <jsp:include page="../leftMenu.jsp" flush="true"/>
     </td>
     <td width=10%>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>

@@ -9,7 +9,7 @@
 <BODY BACKGROUND="../img/background.jpg">
 <table class="titlu">
     <tr><td valign=top>
-        <jsp:include page="../menu.jsp" flush="true"/>
+        <jsp:include page="../leftMenu.jsp" flush="true"/>
     </td>
     <td width=10%>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
