@@ -1,0 +1,17 @@
+DROP TABLE terenuri;
+
+CREATE TABLE terenuri (
+  id bigint(20) unsigned NOT NULL,
+  descriere varchar(255) DEFAULT '' ,
+  data date ,
+  oras varchar(55) DEFAULT '' ,
+  adresa varchar(255) DEFAULT '' ,
+  suprmp decimal(10, 2) DEFAULT '' ,
+  pret decimal(10, 2) DEFAULT '' ,
+  moneda char(3) DEFAULT '' ,
+  intravilan int(1) unsigned DEFAULT 0,
+  telefon varchar(75) DEFAULT '' ,
+  permp int(1) unsigned DEFAULT 0,
+  exista int(1) unsigned DEFAULT 0,
+  PRIMARY KEY (id)
+);
