@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app>
+  <display-name>My JSP app</display-name>
+  <description>This is my application</description>
+  <listener>
+    <listener-class>ro.servlets.init.ContextListenerProp</listener-class>
+  </listener>
+  <servlet>
+    <servlet-name>myInit</servlet-name>
+    <servlet-class>ro.servlets.init.InitServlet</servlet-class>
+    <init-param>
+      <param-name>tempreports</param-name>
+      <param-value>/Program Files/Apache Software Foundation/Tomcat 5.5/webapps/dirigentie/temp</param-value>
+    </init-param>
+    <init-param>
+      <param-name>uploads</param-name>
+      <param-value>/Program Files/Apache Software Foundation/Tomcat 5.5/webapps/dirigentie/uploads</param-value>
+    </init-param>
+    <init-param>
+      <param-name>processedUploads</param-name>
+      <param-value>processed</param-value>
+    </init-param>
+    <init-param>
+      <param-name>Connection.url</param-name>
+      <param-value>jdbc:mysql://localhost:3306/dirigentie</param-value>
+    </init-param>
+    <init-param>
+      <param-name>Connection.password</param-name>
+      <param-value>root</param-value>
+    </init-param>
+    <init-param>
+      <param-name>Connection.dateLeftDelim</param-name>
+      <param-value>'</param-value>
+    </init-param>
+    <init-param>
+      <param-name>Connection.driver</param-name>
+      <param-value>org.gjt.mm.mysql.Driver</param-value>
+    </init-param>
+    <init-param>
+      <param-name>Connection.user</param-name>
+      <param-value>root</param-value>
+    </init-param>
+    <init-param>
+      <param-name>Connection.booleanFormat</param-name>
+      <param-value>true;false</param-value>
+    </init-param>
+    <init-param>
+      <param-name>logpriority</param-name>
+      <param-value>debug</param-value>
+    </init-param>
+    <init-param>
+      <param-name>Connection.name</param-name>
+      <param-value>MyDBConnection</param-value>
+    </init-param>
+    <init-param>
+      <param-name>Connection.dateFormat</param-name>
+      <param-value>yyyy-MM-dd HH:mm:ss</param-value>
+    </init-param>
+    <init-param>
+      <param-name>Connection.maxConnections</param-name>
+      <param-value>5</param-value>
+    </init-param>
+    <init-param>
+      <param-name>Connection.dateRightDelim</param-name>
+      <param-value>'</param-value>
+    </init-param>
+    <init-param>
+      <param-name>logfile</param-name>
+      <param-value>err</param-value>
+    </init-param>
+    <init-param>
+      <param-name>Connection.timeout</param-name>
+      <param-value>100</param-value>
+    </init-param>
+    <init-param>
+      <param-name>Connection.dbType</param-name>
+      <param-value>MySQL</param-value>
+    </init-param>
+
+    <init-param>
+      <param-name>mail.transport.protocol</param-name>
+      <param-value>smtp</param-value>
+    </init-param>
+    <init-param>
+      <param-name>mail.store.protocol</param-name>
+      <param-value>pop3</param-value>
+    </init-param>
+    <init-param>
+      <param-name>mail.host</param-name>
+      <param-value>192.168.0.1</param-value>
+    </init-param>
+    <init-param>
+      <param-name>mail.user</param-name>
+      <param-value>albina</param-value>
+    </init-param>
+    <init-param>
+      <param-name>mail.password</param-name>
+      <param-value>if is  required</param-value>
+    </init-param>
+    <init-param>
+      <param-name>mail.from</param-name>
+      <param-value>albina@alpi.com</param-value>
+    </init-param>
+    <init-param>
+      <param-name>mail.president</param-name>
+      <param-value>albina@alpi.com</param-value>
+    </init-param>
+
+
+    <load-on-startup>110</load-on-startup>
+  </servlet>
+
+  <servlet>
+	<servlet-name>action</servlet-name>
+	<servlet-class>ro.sam.servlets.action.Action</servlet-class>
+  </servlet>
+   <servlet>
+        <servlet-name>upl</servlet-name>
+        <servlet-class>ro.sam.servlets.UploadServlet</servlet-class>
+   </servlet>
+    <servlet-mapping>
+    	<servlet-name>action</servlet-name>
+	    <url-pattern>/doAction</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>upl</servlet-name>
+        <url-pattern>/uploadServlet</url-pattern>
+    </servlet-mapping>
+
+
+  <session-config>
+    <session-timeout>60</session-timeout>
+  </session-config>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+  </welcome-file-list>
+</web-app>
