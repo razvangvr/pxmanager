@@ -7,7 +7,9 @@
 <%  if(request.getSession().getAttribute("userbean")== null || ((UsersBean) request.getSession().getAttribute("userbean")).getUsername()== null)
         response.sendRedirect(response.encodeRedirectURL("../login/login.jsp"));
 
-    String relative_path_file = InitServlet.uploadsdir+ "/";
+String applicationRoot =  request.getServletContext().getRealPath("/");
+
+    String relative_path_file = applicationRoot+InitServlet.uploadsdir;
     String id = ((UsersBean) request.getSession().getAttribute("userbean")).getName();
     session.setAttribute("id",id);
     if (request.getParameter("Del")!=null) {
@@ -15,7 +17,7 @@
 //        id =  (String) session.getAttribute("id");
         System.out.println("id = = = "+filename);
 
-        File f = new File(relative_path_file + id + "/" + filename);
+        File f = new File(relative_path_file +"/"+ id + "/" + filename);
         f.delete();
         System.out.println("path "+ f.getAbsolutePath());
     } else if (request.getParameter("add")!=null) {
@@ -23,7 +25,9 @@
     id =  (String) session.getAttribute("id");
     String filename = uploadFile(request,response, relative_path_file);
 
-
+    
+    
+    System.out.println("App ROOT "+ applicationRoot);    
 %>
 <BODY BACKGROUND="../img/background.jpg">
 <table class="titlu">
@@ -64,7 +68,9 @@
                         <tr><td width="180" nowrap>&nbsp;</td> </tr>
 
 <%
-    File f = new File(relative_path_file + id);
+    String flPath = request.getContextPath()+ "/"+InitServlet.uploadsdir;
+    
+    File f = new File(relative_path_file + "/" + id);
     if(f.exists()) {
     String[] files = f.list();
         for(int i=0; i<files.length; i++) {
@@ -76,7 +82,7 @@
             <td width="180" nowrap></td>
             <td width="180" nowrap></td>
             <td width="180" nowrap>
-                <A HREF="<%="../"+InitServlet.uploadsdir.substring(InitServlet.uploadsdir.lastIndexOf("/")) + "/"+id +'/'+files[i]%>"/><%=files[i]%></A>
+                <A HREF="<%= flPath+ "/"+id +'/'+files[i]%>"/><%=files[i]%></A>
             </td>
             <td>
                 <form name="form1<%=i%>" method="post" action="upload1.jsp">
@@ -234,7 +240,7 @@
 
 
 //        File f = new File("/Program Files/Apache Tomcat 4.0/webapps/terenuri/UPLOADS");
-        File f = new File(relative_path_file + (String) req.getSession().getAttribute("id"));
+        File f = new File(relative_path_file + "/"+ (String) req.getSession().getAttribute("id"));
 
 //        File f = new File("/home/alpi/jakarta-tomcat/webapps/terenuri/UPLOADS");
         if (!f.exists()) {
@@ -244,6 +250,7 @@
         the_file_name = pvalue;
         if (pvalue.length() > 0) { //if filename is valid (not empty)
             absolute_path_file = f.getPath() + /*File.separator */ "/" + pvalue;
+            System.out.println(">>>"+f.getAbsolutePath());
             System.err.println("saving file to: " + absolute_path_file);
             FileOutputStream fout = new FileOutputStream(absolute_path_file);
 //			out.println("<BR>File will be saved as:<BR> ");

@@ -15,7 +15,7 @@
     </init-param>
     <init-param>
       <param-name>uploads</param-name>
-      <param-value>/Tomcat 5.0/webapps/protic/uploads</param-value>
+      <param-value>uploads</param-value>
     </init-param>
     <init-param>
       <param-name>resources</param-name>

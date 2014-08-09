@@ -16,6 +16,8 @@ import javax.servlet.http.*;
 
 public class InitServlet extends HttpServlet {
 
+    
+    public static String APP_HOME = "";
 
     public static String tempreportsdir = "/home/agricol";
     public static String uploadsdir = "/home/processedUploads";
@@ -42,10 +44,17 @@ public class InitServlet extends HttpServlet {
                 resources = siteProps.getProperty("resources");
             new File(resources).mkdirs();
 
+           
+            System.out.println("catalina.base>>>"+System.getProperty("catalina.base"));//http://www.mkyong.com/java/how-to-get-the-tomcat-home-directory-in-java/
+            APP_HOME =  this.getServletContext().getRealPath("/");
+            System.out.println("\nApp Deployed Directory path: " +APP_HOME);//http://crunchify.com/how-to-get-tomcat-directory-path-in-java/
             if(siteProps.getProperty("uploads")!=null)
                 uploadsdir = siteProps.getProperty("uploads");
-            new File(uploadsdir).mkdirs();
-
+            File uploadDir = new File(APP_HOME,uploadsdir);
+            System.out.println(">>"+uploadDir.getAbsolutePath());
+            uploadDir.mkdirs();
+           
+            
             if(siteProps.getProperty("processedUploads")!=null)
                 processedUploads = prefix + siteProps.getProperty("processedUploads");
             new File(processedUploads).mkdirs();
