@@ -1,0 +1,203 @@
+/*
+THIS FILE IS USED TO AGGREGATE ALL CSS THAT IS NEEDED TO DISPLAY THE CONTENTS IN CKEDITOR
+It has the initial css ckeditor came with and also added css to display certain things to help the editors(like conf sessions page top 10 sections)
+*/
+
+/*####################### Default ckeditor css ################################*/
+/*
+Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
+*/
+
+body
+{
+    /* Font */
+    font-family: sans-serif, Arial, Verdana, "Trebuchet MS";
+    font-size: 12px;
+
+    /* Text color */
+    color: #333;
+
+    /* Remove the background color to make it transparent */
+    background-color: #fff;
+
+    margin: 20px;
+}
+
+.cke_editable
+{
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+blockquote
+{
+    font-style: italic;
+    font-family: Georgia, Times, "Times New Roman", serif;
+    padding: 2px 0;
+    border-style: solid;
+    border-color: #ccc;
+    border-width: 0;
+}
+
+.cke_contents_ltr blockquote
+{
+    padding-left: 20px;
+    padding-right: 8px;
+    border-left-width: 5px;
+}
+
+.cke_contents_rtl blockquote
+{
+    padding-left: 8px;
+    padding-right: 20px;
+    border-right-width: 5px;
+}
+
+a
+{
+    color: #0782C1;
+}
+
+ol,ul,dl
+{
+    /* IE7: reset rtl list margin. (#7334) */
+    *margin-right: 0px;
+    /* preserved spaces for list items with text direction other than the list. (#6249,#8049)*/
+    padding: 0 40px;
+}
+
+h1,h2,h3,h4,h5,h6
+{
+    font-weight: normal;
+    line-height: 1.2;
+}
+
+hr
+{
+    border: 0px;
+    border-top: 1px solid #ccc;
+}
+
+img.right
+{
+    border: 1px solid #ccc;
+    float: right;
+    margin-left: 15px;
+    padding: 5px;
+}
+
+img.left
+{
+    border: 1px solid #ccc;
+    float: left;
+    margin-right: 15px;
+    padding: 5px;
+}
+
+pre
+{
+    white-space: pre-wrap; /* CSS 2.1 */
+    word-wrap: break-word; /* IE7 */
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    -webkit-tab-size: 4;
+    tab-size: 4;
+}
+
+.marker
+{
+    background-color: Yellow;
+}
+
+span[lang]
+{
+    font-style: italic;
+}
+
+figure
+{
+    text-align: center;
+    border: solid 1px #ccc;
+    border-radius: 2px;
+    background: rgba(0,0,0,0.05);
+    padding: 10px;
+    margin: 10px 20px;
+    display: inline-block;
+}
+
+figure > figcaption
+{
+    text-align: center;
+    display: block; /* For IE8 */
+}
+
+a > img {
+    padding: 1px;
+    margin: 1px;
+    border: none;
+    outline: 1px solid #0782C1;
+}
+/*####################### END Default ckeditor css ################################*/
+
+/*####################### Infoq Custom CSS ##############################*/
+
+/* top 10 sections on conference sessions screen*/
+.top-block {
+    box-sizing: border-box;
+    display: table-cell;
+    float: none;
+    width: 33%;
+    height: auto;
+    padding: 10px;
+    margin: 0 5px 30px 0;
+    margin-right: 0.5%;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    text-decoration: none;
+    color: #000000;
+    font-weight: 400;
+    position:relative;
+    background: #eeeeee url(http://www.infoq.com/styles/i/i_badge_white.png) 8px 6px no-repeat;
+    padding-left: 36px;
+    border-width: 0 1px 1px 0;
+}
+
+.top-block .top-title {
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.top-block:hover {
+    /*background: #e4e4e4 url(i_badge.png) 12px 6px no-repeat;*/
+}
+
+.top-block li {
+    transition: all .5s;
+    padding-left: 0;
+}
+
+.top-block li:hover {
+    background: #ffffff;
+    border-radius: 3px;
+}
+
+.top-block li a {
+    display: block;
+    padding: 3px;
+    font-size: 13px;
+    color: #286AB2;
+    font-weight: 700;
+}
+
+.top-block li a.notPublished {
+    color: #999999;
+
+}
+.top-block li a span {
+    display: block;
+    font-size: 11px;
+    font-weight: 400;
+    color: #999999;
+}

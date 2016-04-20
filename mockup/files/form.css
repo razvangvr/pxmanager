@@ -1,0 +1,62 @@
+.wwlbl label {
+	width: 15%;
+}
+
+.wwctrl input {
+	width: 70%;
+}
+
+#personas {
+	margin: 10px 0 10px 0;
+}
+
+#personas .personaDescription {
+	margin-left: 15%;
+	margin-top: 5px;
+	font-family: Tahoma;
+	font-size: 10px;
+}
+
+#personas .personaTooltip {
+	display: none;
+	margin-left: 15%;
+	margin-top: 5px;
+	font-family: Tahoma;
+	color: #088A08;
+	font-size: 9px;
+}
+
+#personas .persona {
+	margin-right: 10px;
+	font-size: 12px;
+}
+
+.displaynonetable {
+	width: 100%;
+	display: none;
+}
+
+.fullwidthtable {
+	width: 100%;
+}
+
+#topicContainer {
+	width: 70%;
+}
+
+.topicList {
+	font-size:11px;
+	margin: 5px 0 5px 15%;
+	width: 70%;
+}
+
+.topicLabel {
+	width: 15%;
+	float: left;
+}
+
+#newTopic_div {
+	display: none;
+	width: 70%;
+	margin-left: 15%;
+}

@@ -1,0 +1,56 @@
+#topicContainer {  
+    width:70%;
+    padding:3px 3px 0;
+    margin:0 auto 5px auto;  
+    border:1px solid #aaa;
+    background-color:#fff;
+    cursor:text;
+    border-style:solid;
+}  
+#topicContainer span {
+    display:block;
+    width:auto;
+    margin:0 3px 3px 3px;
+    padding:3px 20px 4px 8px;  
+    position:relative;
+    float:left;
+    background-color:#eee;  
+    border:1px solid #333; 
+    -moz-border-radius:7px;  
+    -webkit-border-radius:7px;
+    border-radius:7px;
+    color:#333;  
+    font:normal 12px Verdana, Sans-serif;  
+}  
+#topicContainer span a {  
+    position:absolute;
+    right:8px;
+    top:2px;
+    color:#666;  
+    font:bold 12px Verdana, Sans-serif;
+    text-decoration:none; 
+    padding-left:5px;
+    cursor:pointer;
+}  
+#topicContainer span a:hover { color:#ff0000; }  
+#topics {  
+    width:50px;
+    margin:3px 0 2px;
+    padding:0 0 3px;  
+    position:relative;
+    float:left;
+    border:none;
+    display:block;  
+}  
+.ui-menu .ui-menu-item { whitewhite-space:nowrap; padding:0 10px 0 0; }
+
+.ui-helper-hidden { display: none; }
+.ui-helper-hidden-accessible { position: absolute; left: -99999999px; }
+.ui-helper-reset { margin: 0; padding: 0; border: 0; outline: 0; line-height: 1.3; text-decoration: none; font-size: 100%; list-style: none; }
+.ui-helper-clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+.ui-helper-clearfix { display: inline-block; }
+/* required comment for clearfix to work in Opera \*/
+* html .ui-helper-clearfix { height:1%; }
+.ui-helper-clearfix { display:block; }
+/* end clearfix */
+.ui-helper-zfix { width: 100%; height: 100%; top: 0; left: 0; position: absolute; opacity: 0; filter:Alpha(Opacity=0); }
