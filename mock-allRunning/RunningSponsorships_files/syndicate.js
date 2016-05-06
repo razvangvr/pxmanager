@@ -69,6 +69,7 @@ var Syndicator = {
 	},
 	
 	sponsorcategSyndicate : function(actionType, nodeId, index) {
+		return;
 		this.setVTFormValues(actionType, nodeId);
 		var message = actionType == 1 ? "Publishing..." : "Unpublishing...";
 		DWRActionUtil.execute({namespace: '/', action: 'syndicateSponsorCateg', executeResult: 'false'}, 
