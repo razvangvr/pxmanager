@@ -1,0 +1,69 @@
+#leftcontent {
+	float: left;
+	width: 18%;
+	margin-right: 15px;
+	padding-top: 20px;
+	padding-bottom:20px;
+}
+
+#leftcontent ul.menu {
+	list-style-type: none; 
+}
+
+#leftcontent ul.menu li {
+	margin-left: -40px;
+	padding-left: 0px;
+}
+
+#main {
+	float: right;
+	width: 78%;
+	margin-right: 15px;
+	margin-top: 0px;
+	padding-top: 0px;
+}
+
+table.menuBar {
+	background-color: #c0c0c0;
+	width: 100%;
+	margin-top: 0px;
+	border: 1px solid black;
+}
+
+table.menuBar td.fill {
+	width: 100%;
+	font-size: 0.9em;
+}
+
+table.bordered {
+	border-collapse: collapse;
+	width:100%;
+}
+
+table.bordered th, table.bordered td{
+	border: 1px solid black;
+}
+
+.small.red {
+	color: red;
+	font-family: sans-serif;
+	font-size: 12px;
+}
+p.use-for-title {
+	float:right;
+	color:darkblue;
+	font-family: sans-serif;
+	font-size: 12px;
+	margin: 0 3px;
+}
+.hidden-by-default {
+	display: none;
+}
+
+td.activated {
+	background-color: #e5ffe5;
+}
+input.title-element {
+	margin: 1px 0 0 3px;
+	border:1px solid darkblue;
+}
