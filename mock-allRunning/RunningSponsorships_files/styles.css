@@ -9,3 +9,14 @@
 .checkboxLabel {}
 .checkboxErrorLabel {color:red; }
 .required {color:red;}
+
+span.percent {
+    /*background-color: rgba(255, 0, 255, 0.2)*/
+    /*border-style: solid;*/
+    border-style: outset;
+    border-width: thin;
+}
+
+div.topic_slot {
+    margin: 3px;
+}
